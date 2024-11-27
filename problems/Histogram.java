@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+package cycles;
+
 import java.util.Scanner;
 
 public class Histogram {
@@ -8,65 +8,32 @@ public class Histogram {
 
         int n = Integer.parseInt(scanner.nextLine());
 
-        List<Integer> allNumbers = new ArrayList<>();
-        List<Integer> allNumbersLittleThan200 = new ArrayList<>();
-        List<Integer> allNumbersFrom200To399 = new ArrayList<>();
-        List<Integer> allNumbersFrom400to599 = new ArrayList<>();
-        List<Integer> allNumbersFrom600To799 = new ArrayList<>();
-        List<Integer> allNumbersFrom800 = new ArrayList<>();
+        int p1Count = 0;
+        int p2Count = 0;
+        int p3Count = 0;
+        int p4Count = 0;
+        int p5Count = 0;
 
-        double sum1 = 0;
-        double sum2 = 0;
-        double sum3 = 0;
-        double sum4 = 0;
-        double sum5 = 0;
-
-        for (int i = 1; i <= n ; i++) {
-
+        for (int i = 0; i < n; i++) {
             int num = Integer.parseInt(scanner.nextLine());
 
-            allNumbers.add(num);
-
-        }
-
-        for (int i = 0; i < allNumbers.size(); i++) {
-
-            if (allNumbers.get(i) < 200) {
-                  allNumbersLittleThan200.add(i);
-            } else if (allNumbers.get(i) >= 200 && allNumbers.get(i) < 400) {
-
-                allNumbersFrom200To399.add(i);
-
-            } else if (allNumbers.get(i) >= 400 && allNumbers.get(i) < 600) {
-
-                allNumbersFrom400to599.add(i);
-
-            } else if (allNumbers.get(i) >= 600 && allNumbers.get(i) < 800) {
-
-                allNumbersFrom600To799.add(i);
-
-            } else if (allNumbers.get(i) >= 800) {
-
-                allNumbersFrom800.add(i);
-
+            if (num < 200) {
+                p1Count++;
+            } else if (num <= 399) {
+                p2Count++;
+            } else if (num <= 599) {
+                p3Count++;
+            } else if (num <= 799) {
+                p4Count++;
+            } else {
+                p5Count++;
             }
-
-            sum1 = allNumbersLittleThan200.size() / (n * 1.0) * 100;
-            sum2 = allNumbersFrom200To399.size() / (n * 1.0) * 100;
-            sum3 = allNumbersFrom400to599.size() / (n * 1.0) * 100;
-            sum4 = allNumbersFrom600To799.size() / (n * 1.0) * 100;
-            sum5 = allNumbersFrom800.size() / (n * 1.0) * 100;
-
-
         }
 
-        System.out.printf("%.2f%%%n", sum1);
-        System.out.printf("%.2f%%%n", sum2);
-        System.out.printf("%.2f%%%n", sum3);
-        System.out.printf("%.2f%%%n", sum4);
-        System.out.printf("%.2f%%%n", sum5);
-
-
-
+        System.out.printf("%.2f%%%n", p1Count * 1.0 / n * 100);
+        System.out.printf("%.2f%%%n", p2Count * 1.0 / n * 100);
+        System.out.printf("%.2f%%%n", p3Count * 1.0 / n * 100);
+        System.out.printf("%.2f%%%n", p4Count * 1.0 / n * 100);
+        System.out.printf("%.2f%%%n", p5Count * 1.0 / n * 100);
     }
 }

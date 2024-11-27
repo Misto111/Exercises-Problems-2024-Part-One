@@ -2,16 +2,18 @@ package cycles;
 
 import java.util.Scanner;
 
-public class NumbersEndingIn7 {
+public class SumNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         int n = Integer.parseInt(scanner.nextLine());
+        int sum = 0;
 
-        for (int i = 7; i < n; i += 10) {
-            if (i % 10 == 7) {
-                System.out.println(i);
-            }
+        for (int i = 0; i < n; i++) {
+            int currentNum = Integer.parseInt(scanner.nextLine());
+
+            sum += currentNum;
         }
+        System.out.println(sum);
     }
 }

@@ -1,3 +1,5 @@
+package cycles;
+
 import java.util.Scanner;
 
 public class Oscars {
@@ -6,32 +8,29 @@ public class Oscars {
 
         String actorName = scanner.nextLine();
         double points = Double.parseDouble(scanner.nextLine());
-        int numOfEvaluate = Integer.parseInt(scanner.nextLine());
+        int numberOfJury = Integer.parseInt(scanner.nextLine());
 
+        double totalPoints = 0;
 
+        for (int i = 1; i <= numberOfJury; i++) {
+            String juryName = scanner.nextLine();
+            double juryPoints = Double.parseDouble(scanner.nextLine());
 
-        for (int i = 1; i <= numOfEvaluate; i++) {
+            String nameWithoutSpaces = juryName.replace(" ", "");
 
-            String nameOfEvaluate = scanner.nextLine();
-            double pointsFromEvaluate = Double.parseDouble(scanner.nextLine());
+            //int nameLength = nameWithoutSpaces.length();
+            double allJuryPoints = juryName.length() * (juryPoints / 2);
 
-            double totalPointsFromEvaluate = nameOfEvaluate.length() * (pointsFromEvaluate / 2);
+            points += allJuryPoints;
 
-            points += totalPointsFromEvaluate;
+            //totalPoints += allJuryPoints;
 
             if (points >= 1250.5) {
-
                 System.out.printf("Congratulations, %s got a nominee for leading role with %.1f!", actorName, points);
-
-               break;
+                return;
             }
-
-        }
-        if (points < 1250.5) {
-            double diff = Math.abs(1250.5 - points);
-            System.out.printf("Sorry, %s you need %.1f more!", actorName, diff);
         }
 
+        System.out.printf("Sorry, %s you need %.1f more!", actorName, (1250.5 - points));
     }
-
 }
