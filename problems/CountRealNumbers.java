@@ -1,6 +1,6 @@
-import java.text.DecimalFormat;
+package setsAndMaps;
+
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class CountRealNumbers {
     public static void main(String[] args) {
