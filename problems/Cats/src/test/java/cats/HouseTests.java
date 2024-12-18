@@ -8,25 +8,21 @@ public class HouseTests {
     @Test(expected = IllegalArgumentException.class)
     public void testCreteHouseWithInvalidCapacity() {
         new House("House1", -4);
-
     }
 
     @Test(expected = NullPointerException.class)
     public void testCreteHouseWithInvalidName() {
         new House(null, 5);
-
     }
     @Test(expected = NullPointerException.class)
     public void testCreteHouseWithInvalidNameEmpty() {
         new House("", 5);
-
     }
     @Test
     public void testCreateHouse() {
         House house = new House("House1", 10);
         Assert.assertEquals("House1", house.getName());
         Assert.assertEquals(10, house.getCapacity());
-
     }
     @Test
     public void testAddCatSuccessfully() {
