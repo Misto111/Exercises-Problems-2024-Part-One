@@ -1,26 +1,23 @@
+package setsAndMaps;
+
 import java.util.*;
 
 public class CountCharsInAString {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String text = scanner.nextLine();
+        String text = scanner.nextLine().replaceAll("\\s+", "");
 
         Map<Character, Integer> countMap = new LinkedHashMap<>();
 
-        for (int i = 0; i < text.length(); i++) {
+        for (char symbol : text.toCharArray()) {
 
-            char current = text.charAt(i);
-
-            if (current == ' ') {
-                continue;
-
+            if (!countMap.containsKey(symbol)) {
+                countMap.put(symbol, 1);
             } else {
-
-                countMap.putIfAbsent(current, 0);
-                countMap.put(current, countMap.get(current) + 1);
+                int currentCount = countMap.get(symbol);
+                countMap.put(symbol,currentCount + 1);
             }
-
         }
 
         for (Map.Entry<Character, Integer> entry : countMap.entrySet()) {
@@ -28,8 +25,6 @@ public class CountCharsInAString {
             System.out.printf("%c -> %d%n", entry.getKey(), entry.getValue());
 
             // countMap.entrySet().forEach(entry -> System.out.println(entry.getKey() + " -> " + entry.getValue()));
-
         }
-
     }
 }
