@@ -7,10 +7,9 @@ import catHouse.entities.toys.Toy;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class BaseHouse implements House{
+public abstract class BaseHouse implements House {
 
     private String name;
     private int capacity;
@@ -38,7 +37,7 @@ public abstract class BaseHouse implements House{
     public void addCat(Cat cat) {
 
         if (this.getCats().size() >= this.capacity) {
-            throw new IllegalArgumentException(ConstantMessages.NOT_ENOUGH_CAPACITY_FOR_CAT);
+            throw new IllegalStateException(ConstantMessages.NOT_ENOUGH_CAPACITY_FOR_CAT);
         }
         this.getCats().add(cat);
     }
@@ -67,9 +66,9 @@ public abstract class BaseHouse implements House{
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(String.format("%s %s%n", this.getName(), this.getClass().getSimpleName()));
         stringBuilder.append("Cats:");
-        if (this.getCats().isEmpty()){
+        if (this.getCats().isEmpty()) {
             stringBuilder.append("none");
-        }else {
+        } else {
             stringBuilder.append(this.getCats().stream().map(Cat::getName).collect(Collectors.joining(" ")).trim());
             stringBuilder.append(System.lineSeparator());
         }
@@ -87,7 +86,7 @@ public abstract class BaseHouse implements House{
     @Override
     public void setName(String name) {
 
-        if (name == null || name.trim().isEmpty()){
+        if (name == null || name.trim().isEmpty()) {
             throw new NullPointerException(ExceptionMessages.HOUSE_NAME_CANNOT_BE_NULL_OR_EMPTY);
         }
         this.name = name;

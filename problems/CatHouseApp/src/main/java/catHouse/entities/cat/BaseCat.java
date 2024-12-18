@@ -10,7 +10,7 @@ public abstract class BaseCat implements Cat {
     private double price;
 
 
-    public BaseCat(String name, String breed,int kilograms, double price) {
+    public BaseCat(String name, String breed, int kilograms, double price) {
         this.setName(name);
         this.setBreed(breed);
         this.setKilograms(kilograms);
