@@ -1,4 +1,4 @@
-package January2025;
+package februalry2025;
 
 import java.util.Scanner;
 
@@ -6,20 +6,12 @@ public class Palindrome {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
+        String text = scanner.nextLine();
 
-        boolean isPalindrome = false;
-        StringBuilder palindrome = new StringBuilder();
+        StringBuilder palindrome = new StringBuilder(text).reverse();
 
-        for (int i = input.length() - 1; i >= 0; i--) {
-
-             palindrome.append(input.charAt(i));
-
-        }
-        if (palindrome.toString().equals(input)) {
-            isPalindrome = true;
-        }
-
+        boolean isPalindrome = palindrome.toString().equals(text);
         System.out.println(isPalindrome);
+        System.out.println(palindrome);
     }
 }
