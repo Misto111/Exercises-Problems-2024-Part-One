@@ -1,4 +1,5 @@
 package februalry2025;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -34,4 +35,4 @@ public class MostCommonCharacterInString {
         System.out.println("The most common char is: '" + mostCommonChar + "', it meets " + count + " times.");
 
     }
-        }
+}
