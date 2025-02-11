@@ -1,4 +1,4 @@
-package January2025;
+package februalry2025;
 
 import java.util.Scanner;
 
@@ -6,24 +6,22 @@ public class LeastCommonMultiple {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int a = Integer.parseInt(scanner.nextLine());
-        int b = Integer.parseInt(scanner.nextLine());
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
 
-        int lcm = findLCM(a, b);
+        int gsd = findGSD(a, b);
 
-        System.out.println("Least common multiple is: " + lcm);
+        int lcm = (a * b) / gsd;
 
-    }
-    public static int findLCM(int a, int b) {
-        return Math.abs(a * b) / findGCD(a, b);
+        System.out.println(lcm);
     }
 
-   public static int findGCD(int a, int b) {
+    private static int findGSD(int a, int b) {
         while (b != 0) {
             int temp = b;
             b = a % b;
             a = temp;
         }
-        return Math.abs(a);
-   }
+        return a;
+    }
 }
